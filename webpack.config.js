@@ -2,8 +2,8 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = { //Configuration object
-  devtool: 'eval',
-  entry: {
+  devtool: 'eval', //Each module is executed with eval and sourceURL.
+  entry: { //The entry point for the bundle.
     app : [
       'webpack-dev-server/client?http://localhost:3000',
       'webpack/hot/only-dev-server',
