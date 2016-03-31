@@ -2,25 +2,25 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: {
+  entry: { //The entry point for the bundle.
     app : [
       './lib/index.js'],
   },
-  output: {
-    path: path.join(__dirname, './public/js/'),
-    filename: `app.js`,
+  output: { //Same as in the webpack.js.config file
+    path: path.join(__dirname, './public/js/'), /
+    filename: `app.js`, 
     publicPath: '/js/'
   },
-  plugins: [
+  plugins: [ //Add additional plugins to the compiler. Found this info at https://webpack.github.io/docs/plugins.html
     new webpack.DefinePlugin({
         'process.env': {
           'NODE_ENV': JSON.stringify('production')
         }
     }),
-    new webpack.optimize.UglifyJsPlugin({
+    new webpack.optimize.UglifyJsPlugin({ //to safe space and make this file more efficient, it is ok that humans cannot read it
     }),
   ],
-  node: {
+  node: { //the rest is the same as the other file.
     fs: "empty"
   },
   resolve: {
